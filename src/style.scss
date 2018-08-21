@@ -1,4 +1,4 @@
-$bg-header: #66CDAA;
+$bg-header: rgb(31, 138, 54);
 $bg-home-btn: #008B8B;
 $bg-home-btn2: #3CB371;
 $brd-col: #444;
@@ -24,19 +24,37 @@ html, body{
         padding: 20px 0;
         background: $bg-header;
     }
-    &__content{}
+    &__content{
+        padding: 20px;
+    }
 }
 
 .tags-cloud{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    &__item{
-        padding: 10px;
+    align-items: flex-start;
+    &__item{ 
+        transition: transform .2s ease-in-out;
+    }
+    &__item:hover{
+        transform: translateY(-10px)
     }
 }
 
+.tag-link{
+    text-decoration: none;
+    background: $bg-sidebar;
+    box-sizing: border-box;
+    color: rgb(26, 44, 44);
+    padding: 10px;
+    border: 1px solid $brd-col;
+    border-radius: 10px;
+}
+
+
 .search-form{
+    color: #fff;
     input{
         padding: 10px;
         font-size: 18px;
