@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
 import {fetchTags} from 'redux-store/actions';
-import {getFilteredTags, getTags} from 'redux-store/selectors';
+import {getFilteredTags, getTags, getLoadingTags} from 'redux-store/selectors';
 
 import Tag from 'components/Tag';
+import Preloader from 'components/Preloader';
 import SearchForm from 'containers/SearchForm';
 
 const mapStateToProps = state => {
     return {
         tags : getTags(state),
-        filteredTags : getFilteredTags(state)
+        filteredTags : getFilteredTags(state),
+        loading : getLoadingTags(state)
     }
 }
 
@@ -21,19 +23,25 @@ const mapDispatchToProps = {
 class TagsCloud extends Component {
     
     componentWillMount(){
-        this.props.fetchTags()
+        if(!this.props.tags.length){
+            this.props.fetchTags()
+        }
     }
 
     render() {
-        let {tags, filteredTags} = this.props
+        let {tags, filteredTags, loading} = this.props
         return (
             <div className="home-page">
                 <div className="home-page__header"><SearchForm/></div>
                 <div className="home-page__content">
                     <div className="tags-cloud">
-                        {tags.length && filteredTags.map( item => {
-                            return <div key={item.id} className="tags-cloud__item"><Tag tag={item}/></div>
-                        })}
+                        { loading && !(tags.length) ? 
+                            <Preloader/> :
+                            filteredTags.map( item => {
+                                return <div key={item.id} className="tags-cloud__item"><Tag tag={item}/></div>
+                            }) 
+                            
+                        }
                     </div>
                 </div>
             </div>

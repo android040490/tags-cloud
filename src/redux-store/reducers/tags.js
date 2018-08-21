@@ -9,11 +9,18 @@ import {
 const initialState = {
   ids : [],
   entities : {},
-  filterString : ''
+  filterString : '',
+  loading : false
 }
 
 export default function tags( state = initialState, { type , payload } ){
   switch (type){
+
+    case FETCH_TAGS_START : 
+      return {
+        ...state,
+        loading: true
+      }
 
     case FETCH_TAGS_SUCCESS :
       let entities = R.indexBy(R.prop('id'), payload);
@@ -21,9 +28,10 @@ export default function tags( state = initialState, { type , payload } ){
       return {
         ...state,
         ids,
-        entities
+        entities,
+        loading : false
         }
-        
+
     case SET_FILTER : 
       return {
         ...state,

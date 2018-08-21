@@ -7,6 +7,8 @@ export const getTags = (state) => {
      return tags
 }
 
+export const getLoadingTags = (state) => state.tags.loading
+
 const stringContains = (item, state) => (item.label.toLowerCase().indexOf(state.tags.filterString.toLowerCase()) == -1) ? false : true
 
 export const getFilteredTags = (state) => {

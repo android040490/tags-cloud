@@ -47,7 +47,12 @@ class SearchForm extends Component {
         return (
             <div className="search-form wrapper">
                 <div><label htmlFor="search">Search tags</label></div>
-                <input id="search" type="text" onChange={this.handleChange} placeholder="Search tag"/>
+                <input 
+                    id="search" 
+                    type="text" 
+                    onChange={this.handleChange}
+                    placeholder="Search tag"
+                />
             </div>
         );
     };
