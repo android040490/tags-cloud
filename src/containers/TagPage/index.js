@@ -5,6 +5,9 @@ import {connect} from 'react-redux';
 
 import {getParamItemId, getTagById} from 'redux-store/selectors';
 
+import leftArrow  from '../../assets/baseline-keyboard_arrow_left-24px.svg';
+import ReactSVG from 'react-svg';
+
 const mapStateToProps = (state, ownProps) => {
     return {
         tag : getTagById(state, getParamItemId(ownProps))
@@ -17,7 +20,12 @@ class TagPage extends Component {
         let {tag} = this.props;
         return (
             <div className="tag-page wrapper">
-                <div className="tag-page__sidebar"><Link to ='/home' className="home-btn">&#60; Home</Link></div>
+                <div className="tag-page__sidebar">
+                    <Link to ='/home' className="home-btn">
+                        <div><ReactSVG className="home-btn__icon" path={leftArrow}/></div>
+                        <div>Home</div>
+                    </Link>
+                </div>
                 <div className="tag-page__content">
                     <h2 className="tag-page__title">{tag.label}</h2>
                     <div className="tag-page__data">

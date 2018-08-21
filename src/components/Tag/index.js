@@ -7,7 +7,7 @@ class Tag extends Component {
             <div>
                 <Link 
                     className="tag-link"
-                    style={{ fontSize : `${this.props.tag.sentimentScore}px` }} 
+                    style={{ fontSize : `${this.props.tag.sentimentScore /2}px`}} 
                     to={`/home/${this.props.tag.id}`}
                     >{this.props.tag.label}
                 </Link>

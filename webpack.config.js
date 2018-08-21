@@ -35,7 +35,18 @@ module.exports = {
                   fallback: 'style-loader',
                   use: ['css-loader', 'sass-loader']
                 })
-              }
+            },
+            {
+                test: /\.(png|jpg|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name]-[hash:8].[ext]'
+                        },
+                    },
+                ]
+            }
         ]
     },
     plugins: [

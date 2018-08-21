@@ -1,5 +1,6 @@
 $bg-header: #66CDAA;
 $bg-home-btn: #008B8B;
+$bg-home-btn2: #3CB371;
 $brd-col: #444;
 $bg-sidebar: #B0C4DE;
 
@@ -29,8 +30,9 @@ html, body{
 .tags-cloud{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     &__item{
-        padding: 5px;
+        padding: 10px;
     }
 }
 
@@ -45,6 +47,9 @@ html, body{
 }
 
 .home-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     text-transform: uppercase;
     text-decoration: none;
     color: #fff;
@@ -52,6 +57,14 @@ html, body{
     border: 1px solid $brd-col;
     border-radius: 3px;
     background: $bg-home-btn;
+    transition: background .3s linear;
+    &__icon{
+        fill: #f00;
+    }
+}
+
+.home-btn:hover{
+    background: $bg-home-btn2;
 }
 
 .tag-page{

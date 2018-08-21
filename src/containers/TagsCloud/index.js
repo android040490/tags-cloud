@@ -34,7 +34,7 @@ class TagsCloud extends Component {
             <div className="home-page">
                 <div className="home-page__header"><SearchForm/></div>
                 <div className="home-page__content">
-                    <div className="tags-cloud">
+                    <div className="tags-cloud wrapper">
                         { loading && !(tags.length) ? 
                             <Preloader/> :
                             filteredTags.map( item => {
