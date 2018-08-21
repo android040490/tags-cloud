@@ -30,10 +30,10 @@ class TagPage extends Component {
                     <h2 className="tag-page__title">{tag.label}</h2>
                     <div className="tag-page__data">
                         <ul className="list-data">
-                            <li className="list-data__item">Total Mentions : {tag.volume}</li>
-                            <li className="list-data__item">Positive Mentions : {tag.sentiment.positive}</li>
-                            <li className="list-data__item">Neutral Mentions : {tag.sentiment.neutral}</li>
-                            <li className="list-data__item">Negative Mentions : {tag.sentiment.negative}</li>
+                            <li className="list-data__item">Total Mentions : {tag.volume || 0}</li>
+                            <li className="list-data__item">Positive Mentions : {tag.sentiment.positive || 0}</li>
+                            <li className="list-data__item">Neutral Mentions : {tag.sentiment.neutral || 0}</li>
+                            <li className="list-data__item">Negative Mentions : {tag.sentiment.negative || 0}</li>
                             <li className="list-data__item">Page types  
                                 <ul>{Object.keys(tag.pageType).map((item, index) => {
                                     return <li key={item + tag.pageType.item}>{item} : {tag.pageType[item]}</li> 
