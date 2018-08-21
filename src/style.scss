@@ -50,6 +50,11 @@ html, body{
     padding: 10px;
     border: 1px solid $brd-col;
     border-radius: 10px;
+    transition: all .3s linear;
+}
+.tag-link:hover{
+    background: rgb(244, 248, 4);
+    color: rgb(128, 10, 206);
 }
 
 
