@@ -7,6 +7,7 @@ import {setFilter} from 'redux-store/actions';
 const mapDispatchToProps = {
     setFilter
 };
+
 @connect(null, mapDispatchToProps)
 class SearchForm extends Component {
     constructor (props){
