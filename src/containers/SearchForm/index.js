@@ -21,6 +21,10 @@ class SearchForm extends Component {
 
     search = this.debounce(this.props.setFilter , 500);
 
+    componentWillMount(){
+        this.props.setFilter('')
+    }
+
     handleChange(event){
         let value = event.target.value;
         this.search(value);
